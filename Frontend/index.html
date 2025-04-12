@@ -626,7 +626,7 @@
                     </div>
                     <h3>Document Summarization</h3>
                     <p>Extracts and summarizes lengthy medical reports into short, understandable summaries that highlight the most important information.</p>
-                    <a href="/document-summarization" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    <a href="/document-summarization" class="feature-link"> <i class="fas fa-arrow-right"></i></a>
                 </div>
                 
                 <div class="feature-card">
@@ -635,7 +635,7 @@
                     </div>
                     <h3>Term Explainer</h3>
                     <p>Breaks down complex medical and insurance terms into simple explanations using our advanced AI technology.</p>
-                    <a href="/term-explainer" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    <a href="/term-explainer" class="feature-link"> <i class="fas fa-arrow-right"></i></a>
                 </div>
                 
                 <div class="feature-card">
@@ -644,7 +644,7 @@
                     </div>
                     <h3>Auto Document Generator</h3>
                     <p>Automatically generates professional claim letters, emails, or appeals using patient data to save you time and effort.</p>
-                    <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    <a href="#" class="feature-link"> <i class="fas fa-arrow-right"></i></a>
                 </div>
                 
                 <div class="feature-card">
@@ -653,7 +653,7 @@
                     </div>
                     <h3>Patient Chatbot</h3>
                     <p>AI chatbot that provides instant answers to questions regarding bills, documents, or the claim process using your stored data.</p>
-                    <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    <a href="#" class="feature-link"> <i class="fas fa-arrow-right"></i></a>
                 </div>
                 
                 <div class="feature-card">
@@ -662,7 +662,7 @@
                     </div>
                     <h3>Claims Dashboard</h3>
                     <p>Track all your claims in one place with our intuitive dashboard showing statuses, timelines, and next steps.</p>
-                    <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    <a href="#" class="feature-link"> <i class="fas fa-arrow-right"></i></a>
                 </div>
                 
                 <div class="feature-card">
@@ -671,7 +671,7 @@
                     </div>
                     <h3>Secure Document Storage</h3>
                     <p>Store all your medical documents and claims in one secure, HIPAA-compliant location with easy access whenever needed.</p>
-                    <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    <a href="#" class="feature-link"> <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -865,8 +865,7 @@
     </div>
     
     <script>
-        // Main JavaScript for HealAi website
-document.addEventListener('DOMContentLoaded', function() {
+       document.addEventListener('DOMContentLoaded', function() {
     // Initialize Chatbot
     initChatbot();
     
@@ -875,6 +874,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize animation effects
     initAnimations();
+    
+    // Initialize document upload simulation
+    simulateDocumentUpload();
 });
 
 // Chatbot Functionality
@@ -886,6 +888,12 @@ function initChatbot() {
     const chatInputField = document.getElementById('chat-input-field');
     const sendMessage = document.getElementById('send-message');
     
+    // Check if elements exist before adding event listeners
+    if (!chatbotTrigger || !chatbotWindow) {
+        console.error('Chatbot elements not found in the DOM');
+        return;
+    }
+    
     // Set initial state
     let isChatOpen = false;
     
@@ -893,11 +901,11 @@ function initChatbot() {
     const claimTerms = {
         'deductible': 'The amount you pay for covered healthcare services before your insurance plan starts to pay.',
         'copay': 'A fixed amount you pay for a covered healthcare service, usually when you receive the service.',
-        'coinsurance': 'The percentage of costs you pay after you've met your deductible.',
+        'coinsurance': 'The percentage of costs you pay after you have met your deductible.',
         'eob': 'An Explanation of Benefits (EOB) is a statement from your health insurance company explaining what medical treatments and services were paid for on your behalf.',
         'prior authorization': 'Approval required from your health insurance company before you receive certain services or treatments.',
         'in-network': 'Providers or healthcare facilities that have contracted with your health insurance company to provide services at negotiated rates.',
-        'out-of-network': 'Providers or facilities that haven't contracted with your health insurance company, which usually results in higher costs.',
+        'out-of-network': 'Providers or facilities that havent contracted with your health insurance company, which usually results in higher costs.',
         'premium': 'The amount you pay for your health insurance every month.',
         'claim': 'A request for payment that you or your healthcare provider submits to your health insurance company when you receive services.',
         'appeal': 'A request to review a denied claim or service.',
@@ -908,7 +916,7 @@ function initChatbot() {
     // Knowledge base for the chatbot
     const knowledgeBase = {
         'hello': 'Hi there! How can I assist you with your medical claims today?',
-        'hi': 'Hello! I'm your HealAi assistant. What can I help you with?',
+        'hi': 'Hello! Im your HealAi assistant. What can I help you with?',
         'hey': 'Hello there! How can I help with your medical claims?',
         'help': 'I can help you with uploading documents, checking claim status, explaining medical terms, and navigating the insurance claim process. Just let me know what you need!',
         
@@ -920,15 +928,15 @@ function initChatbot() {
         // Claim status inquiries
         'status': 'I can check your claim status for you. Could you provide your claim reference number? In a real interaction, I would look this up in our secure database.',
         'pending': 'Pending claims are still being processed. The average processing time is 5-7 business days.',
-        'approved': 'When a claim is approved, you'll receive an email notification and the details will appear in your dashboard.',
+        'approved': 'When a claim is approved, you will receive an email notification and the details will appear in your dashboard.',
         'denied': 'If your claim was denied, we can help you understand why and assist with the appeals process if needed.',
         'appeal': 'To appeal a denied claim, go to the claim details page and click "Start Appeal Process". Our system will guide you through the necessary steps.',
         
         // Features explanation
         'summarize': 'Our Document Summarization feature extracts key information from lengthy medical reports and insurance policies, presenting the most important points in an easy-to-understand format.',
-        'explain': 'The Term Explainer breaks down complex medical and insurance terminology into simple language. Just highlight any term you don't understand.',
+        'explain': 'The Term Explainer breaks down complex medical and insurance terminology into simple language. Just highlight any term you dont understand.',
         'generator': 'The Auto Document Generator creates professional appeal letters, request letters, and emails based on your specific situation and claim data.',
-        'chatbot': 'That's me! I'm here to answer questions about your claims, help you navigate the platform, and explain medical or insurance terms.',
+        'chatbot': 'That iss me! Im here to answer questions about your claims, help you navigate the platform, and explain medical or insurance terms.',
         'dashboard': 'Your personalized dashboard shows all your claims in one place, with status indicators, important dates, and action items clearly marked.',
         
         // Account related
@@ -939,32 +947,42 @@ function initChatbot() {
         
         // Contact information
         'contact': 'You can reach our support team at support@healai.com or call us at (555) 123-4567 during business hours (Mon-Fri, 9AM-5PM EST).',
-        'human': 'If you'd prefer to speak with a human representative, please call our support line at (555) 123-4567 or email support@healai.com.',
+        'human': 'If you would prefer to speak with a human representative, please call our support line at (555) 123-4567 or email support@healai.com.',
         'hours': 'Our support team is available Monday through Friday, 9AM to 5PM Eastern Time.',
         
         // Default response
-        'default': 'I'm here to help with any questions about your medical claims, documents, or the claim process. Could you provide more details about what you need assistance with?'
+        'default': 'Im here to help with any questions about your medical claims, documents, or the claim process. Could you provide more details about what you need assistance with?'
     };
     
     // Toggle chatbot window
-    chatbotTrigger.addEventListener('click', function() {
-        if (isChatOpen) {
+    if (chatbotTrigger) {
+        chatbotTrigger.addEventListener('click', function() {
+            if (isChatOpen) {
+                chatbotWindow.style.display = 'none';
+                isChatOpen = false;
+            } else {
+                chatbotWindow.style.display = 'flex';
+                // Only focus if input field exists
+                if (chatInputField) chatInputField.focus();
+                isChatOpen = true;
+            }
+        });
+    }
+    
+    if (closeChat) {
+        closeChat.addEventListener('click', function() {
             chatbotWindow.style.display = 'none';
             isChatOpen = false;
-        } else {
-            chatbotWindow.style.display = 'flex';
-            chatInputField.focus();
-            isChatOpen = true;
-        }
-    });
-    
-    closeChat.addEventListener('click', function() {
-        chatbotWindow.style.display = 'none';
-        isChatOpen = false;
-    });
+        });
+    }
     
     // Function to add a message to the chat (from either user or bot)
     function addMessageToChat(message, sender) {
+        if (!chatMessages) {
+            console.error('Chat messages container not found');
+            return;
+        }
+        
         const messageDiv = document.createElement('div');
         messageDiv.classList.add('message', sender === 'user' ? 'user-message' : 'bot-message');
         
@@ -1015,6 +1033,11 @@ function initChatbot() {
     
     // Function to handle sending a message
     function sendUserMessage() {
+        if (!chatInputField || !chatMessages) {
+            console.error('Chat input or messages container not found');
+            return;
+        }
+        
         const userInput = chatInputField.value.trim();
         if (userInput === '') return;
         
@@ -1115,14 +1138,18 @@ function initChatbot() {
     }
     
     // Send message on button click
-    sendMessage.addEventListener('click', sendUserMessage);
+    if (sendMessage) {
+        sendMessage.addEventListener('click', sendUserMessage);
+    }
     
     // Send message on Enter key
-    chatInputField.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            sendUserMessage();
-        }
-    });
+    if (chatInputField) {
+        chatInputField.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendUserMessage();
+            }
+        });
+    }
     
     // Add CSS for term highlights and quick replies
     const style = document.createElement('style');
@@ -1159,19 +1186,21 @@ function initChatbot() {
     document.head.appendChild(style);
     
     // Initialize with welcome message
-    setTimeout(() => {
-        const initialMessages = [
-            "Hello! I'm your HealAi assistant. How can I help you with your medical claims today?",
-            "You can ask me about uploading documents, checking claim status, or explaining medical terms."
-        ];
-        
-        addMessageToChat(initialMessages[0], 'bot');
-        
+    if (chatMessages) {
         setTimeout(() => {
-            addMessageToChat(initialMessages[1], 'bot');
-        }, 1000);
-    }, 500);
-};
+            const initialMessages = [
+                "Hello! I'm your HealAi assistant. How can I help you with your medical claims today?",
+                "You can ask me about uploading documents, checking claim status, or explaining medical terms."
+            ];
+            
+            addMessageToChat(initialMessages[0], 'bot');
+            
+            setTimeout(() => {
+                addMessageToChat(initialMessages[1], 'bot');
+            }, 1000);
+        }, 500);
+    }
+}
 
 // Smooth scrolling functionality
 function initSmoothScrolling() {
@@ -1259,7 +1288,7 @@ function initAnimations() {
 
 // Document upload simulation (for demonstration)
 function simulateDocumentUpload() {
-    const uploadButton = document.querySelector('.cta-buttons .btn-primary');
+    const uploadButton = document.querySelector('.upload-btn, .cta-buttons .btn-primary');
     if (uploadButton) {
         uploadButton.addEventListener('click', function(e) {
             e.preventDefault();
@@ -1278,11 +1307,77 @@ function simulateDocumentUpload() {
             fileInput.click();
         });
     }
+    
+    // Also attach to "Upload New Document" button
+    const uploadNewDocBtn = document.getElementById('upload-new-doc');
+    if (uploadNewDocBtn) {
+        uploadNewDocBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const fileInput = document.createElement('input');
+            fileInput.type = 'file';
+            fileInput.accept = '.pdf,.jpg,.jpeg,.png,.doc,.docx';
+            fileInput.multiple = true;
+            
+            fileInput.addEventListener('change', function() {
+                if (this.files.length > 0) {
+                    alert(`Selected ${this.files.length} file(s) for upload. In a complete implementation, these would be processed by the system.`);
+                }
+            });
+            
+            fileInput.click();
+        });
+    }
 }
 
-// Initialize document upload simulation
+// Function to handle hyperlink functionality for feature sections
+function initFeatureLinks() {
+    // Document Summarization link
+    const docSumLink = document.getElementById('doc-summarization-link');
+    if (docSumLink) {
+        docSumLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('This would navigate to the Document Summarization feature page where you can upload medical documents for AI summarization.');
+        });
+    }
+    
+    // Term Explainer link
+    const termExplainerLink = document.getElementById('term-explainer-link');
+    if (termExplainerLink) {
+        termExplainerLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('This would navigate to the Term Explainer tool where you can paste text and get simplified explanations of medical terms.');
+        });
+    }
+    
+    // Auto Document Generator link
+    const docGenLink = document.getElementById('doc-generator-link');
+    if (docGenLink) {
+        docGenLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('This would navigate to the Document Generator tool where you can create appeal letters, emails, and claim-related documents.');
+        });
+    }
+    
+    // Patient Chatbot link
+    const chatbotLink = document.getElementById('patient-chatbot-link');
+    if (chatbotLink) {
+        chatbotLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Show the chatbot
+            const chatbotWindow = document.getElementById('chatbot-window');
+            if (chatbotWindow) {
+                chatbotWindow.style.display = 'flex';
+                const chatInputField = document.getElementById('chat-input-field');
+                if (chatInputField) chatInputField.focus();
+            }
+        });
+    }
+}
+
+// Add this new function to the onload event
 document.addEventListener('DOMContentLoaded', function() {
-    simulateDocumentUpload();
+    initFeatureLinks();
 });
 </script>
 </body>

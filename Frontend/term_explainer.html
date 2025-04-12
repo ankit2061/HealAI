@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance and Medical Term Explainer - HealAi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0e6e4f;
+            --primary-dark: #085340;
+            --text-light: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #111;
+            color: var(--text-light);
+        }
+
+        .navbar {
+            background-color: var(--primary);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        .logo i {
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        .user-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .user-section .dropdown {
+            position: relative;
+        }
+
+        .user-section .dropdown i {
+            margin-left: 5px;
+        }
+
+        .main-content {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 40px;
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 50px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 20px;
+            border-radius: 50px;
+            border: none;
+            background-color: #333;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background-color: #1a2030;
+            border-radius: 10px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            color: var(--primary);
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #a0a0a0;
+            font-size: 14px;
+        }
+
+        footer {
+            background-color: #161b2c;
+            padding: 20px;
+            text-align: center;
+            color: #888;
+        }
+
+        /* Search History Section */
+        .search-history {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #1a2030;
+            border-radius: 10px;
+            padding: 15px;
+            display: none;
+        }
+
+        .search-history h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .search-history-list {
+            list-style: none;
+            text-align: left;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .search-history-item {
+            padding: 8px;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .search-history-item:last-child {
+            border-bottom: none;
+        }
+
+        .search-history-text {
+            cursor: pointer;
+            color: #ccc;
+        }
+
+        .search-history-text:hover {
+            color: #fff;
+        }
+
+        .search-history-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-history-actions button {
+            background: none;
+            border: none;
+            color: #999;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .search-history-actions button:hover {
+            color: #fff;
+        }
+
+        .clear-history {
+            background: none;
+            border: none;
+            color: #999;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .clear-history:hover {
+            color: #fff;
+        }
+
+        .search-history-toggle {
+            background: none;
+            border: none;
+            color: #ccc;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin: 10px auto 0;
+        }
+
+        .search-history-toggle:hover {
+            color: #fff;
+        }
+
+        /* Deploy button */
+        .deploy-btn {
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .deploy-btn:hover {
+            background-color: var(--primary-dark);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="#" class="logo">
+            <i class="fas fa-heartbeat"></i>
+            HealAi
+        </a>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Features</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="user-section">
+            <span>JD</span>
+            <div class="dropdown">
+                <span>johndoe@example.com</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <button class="deploy-btn">Deploy</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>Insurance and Medical Term Explainer</h1>
+        <p class="subtitle">Ask about insurance terms, medical conditions (or retrieve patient data)</p>
+
+        <!-- Search Container -->
+        <div class="search-container">
+            <input type="text" class="search-input" id="search-input" placeholder="Search for terms, conditions, or patient data...">
+            <button class="search-btn">
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+
+        <!-- Search History Section -->
+        <div class="search-history" id="search-history">
+            <h3>
+                Recent Searches
+                <button class="clear-history" id="clear-history">Clear All</button>
+            </h3>
+            <ul class="search-history-list" id="search-history-list">
+                <!-- Search history items will be added here dynamically -->
+            </ul>
+        </div>
+
+        <!-- Search History Toggle Button -->
+        <button class="search-history-toggle" id="history-toggle">
+            <i class="fas fa-history"></i> View Search History
+        </button>
+
+        <!-- Cards Container -->
+        <div class="cards-container">
+            <!-- Card 1 -->
+            <div class="card">
+                <i class="fas fa-file-invoice-dollar card-icon"></i>
+                <h3>What is a deductible?</h3>
+                <p>Understand insurance payment terms</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <i class="fas fa-chart-line card-icon"></i>
+                <h3>Define bronchial asthma</h3>
+                <p>Learn about common medical conditions</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <i class="fas fa-folder-open card-icon"></i>
+                <h3>What is an EOB?</h3>
+                <p>Explanation of insurance documents</p>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="card">
+                <i class="fas fa-network-wired card-icon"></i>
+                <h3>In-network vs out-of-network</h3>
+                <p>Compare provider network coverage</p>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="card">
+                <i class="fas fa-pills card-icon"></i>
+                <h3>Define prior authorization</h3>
+                <p>Learn about prescription coverage rules</p>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="card">
+                <i class="fas fa-user-md card-icon"></i>
+                <h3>What is a PCP?</h3>
+                <p>Understand provider role terminology</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 HealAi. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('search-input');
+            const searchBtn = document.querySelector('.search-btn');
+            const historyContainer = document.getElementById('search-history');
+            const historyList = document.getElementById('search-history-list');
+            const clearHistoryBtn = document.getElementById('clear-history');
+            const historyToggle = document.getElementById('history-toggle');
+            
+            // Load search history from localStorage
+            let searchHistory = JSON.parse(localStorage.getItem('healAiSearchHistory')) || [];
+            
+            // Update history list display
+            function updateHistoryDisplay() {
+                // Clear existing list
+                historyList.innerHTML = '';
+                
+                // Add each search term to the list (most recent first)
+                searchHistory.slice().reverse().forEach((term, index) => {
+                    const li = document.createElement('li');
+                    li.className = 'search-history-item';
+                    
+                    const termSpan = document.createElement('span');
+                    termSpan.className = 'search-history-text';
+                    termSpan.textContent = term;
+                    termSpan.addEventListener('click', () => {
+                        searchInput.value = term;
+                        performSearch(term);
+                    });
+                    
+                    const actionsDiv = document.createElement('div');
+                    actionsDiv.className = 'search-history-actions';
+                    
+                    const deleteBtn = document.createElement('button');
+                    deleteBtn.innerHTML = '<i class="fas fa-times"></i>';
+                    deleteBtn.title = 'Remove from history';
+                    deleteBtn.addEventListener('click', () => {
+                        removeFromHistory(term);
+                    });
+                    
+                    actionsDiv.appendChild(deleteBtn);
+                    li.appendChild(termSpan);
+                    li.appendChild(actionsDiv);
+                    historyList.appendChild(li);
+                });
+                
+                // Update visibility of history section based on whether there are items
+                if (searchHistory.length > 0) {
+                    historyContainer.style.display = 'block';
+                    historyToggle.innerHTML = '<i class="fas fa-history"></i> Hide Search History';
+                } else {
+                    historyContainer.style.display = 'none';
+                    historyToggle.innerHTML = '<i class="fas fa-history"></i> View Search History';
+                }
+            }
+            
+            // Add a term to search history
+            function addToHistory(term) {
+                // Remove the term if it already exists (to avoid duplicates)
+                searchHistory = searchHistory.filter(item => item !== term);
+                
+                // Add the new term
+                searchHistory.push(term);
+                
+                // Limit the history to 10 items
+                if (searchHistory.length > 10) {
+                    searchHistory.shift();
+                }
+                
+                // Save to localStorage
+                localStorage.setItem('healAiSearchHistory', JSON.stringify(searchHistory));
+                
+                // Update the display
+                updateHistoryDisplay();
+            }
+            
+            // Remove a term from search history
+            function removeFromHistory(term) {
+                searchHistory = searchHistory.filter(item => item !== term);
+                localStorage.setItem('healAiSearchHistory', JSON.stringify(searchHistory));
+                updateHistoryDisplay();
+            }
+            
+            // Clear all search history
+            function clearHistory() {
+                searchHistory = [];
+                localStorage.setItem('healAiSearchHistory', JSON.stringify(searchHistory));
+                updateHistoryDisplay();
+            }
+            
+            // Perform search (in a real app, this would query an API or database)
+            function performSearch(term) {
+                // For this demo, just add the term to history
+                if (term.trim() !== '') {
+                    addToHistory(term.trim());
+                    // In a real app, you would handle the actual search here
+                    console.log('Searching for:', term);
+                    // Simulate search - in a real app this would trigger navigation or API call
+                    alert(`Searching for: "${term}"`);
+                }
+            }
+            
+            // Event listeners
+            searchBtn.addEventListener('click', () => {
+                performSearch(searchInput.value);
+            });
+            
+            searchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    performSearch(searchInput.value);
+                }
+            });
+            
+            clearHistoryBtn.addEventListener('click', clearHistory);
+            
+            historyToggle.addEventListener('click', () => {
+                if (historyContainer.style.display === 'none' || historyContainer.style.display === '') {
+                    historyContainer.style.display = 'block';
+                    historyToggle.innerHTML = '<i class="fas fa-history"></i> Hide Search History';
+                } else {
+                    historyContainer.style.display = 'none';
+                    historyToggle.innerHTML = '<i class="fas fa-history"></i> View Search History';
+                }
+            });
+            
+            // Add click handlers for example cards
+            document.querySelectorAll('.card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const term = card.querySelector('h3').textContent;
+                    searchInput.value = term;
+                    performSearch(term);
+                });
+            });
+            
+            // Initial display update
+            updateHistoryDisplay();
+            
+            // Initially hide the history panel
+            historyContainer.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

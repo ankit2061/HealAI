@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - HealAi</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0e6e4f;
+            --primary-light: #218a6a;
+            --primary-dark: #085340;
+            --secondary: #e9f5f2;
+            --accent: #14b8a6;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--secondary);
+        }
+        .bg-primary { background-color: var(--primary); }
+        .bg-primary-light { background-color: var(--primary-light); }
+        .hover-bg-primary-light:hover { background-color: var(--primary-light); }
+        .text-primary { color: var(--primary); }
+        .border-primary { border-color: var(--primary); }
+        .login-container {
+            min-height: calc(100vh - 80px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="bg-primary shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="index.html" class="flex items-center">
+                    <i class="fas fa-heartbeat text-white text-2xl mr-2"></i>
+                    <span class="text-white font-bold text-xl">HealAi</span>
+                </a>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-white hover:text-gray-200 transition-all">Home</a>
+                <a href="#" class="text-white hover:text-gray-200 transition-all">About</a>
+                <a href="#" class="text-white hover:text-gray-200 transition-all">Features</a>
+                <a href="#" class="text-white hover:text-gray-200 transition-all">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Container -->
+    <div class="login-container flex items-center justify-center px-4">
+        <div class="bg-white rounded-lg shadow-xl p-8 w-full max-w-md">
+            <div class="text-center mb-8">
+                <div class="inline-flex items-center justify-center bg-primary rounded-full w-16 h-16 mb-4">
+                    <i class="fas fa-user text-white text-2xl"></i>
+                </div>
+                <h1 class="text-2xl font-bold text-gray-800">Log in to your account</h1>
+                <p class="text-gray-600 mt-2">Access your medical claims dashboard</p>
+            </div>
+
+            <form id="login-form">
+                <!-- Email Input -->
+                <div class="mb-6">
+                    <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-envelope text-gray-400"></i>
+                        </div>
+                        <input type="email" id="email" class="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="yourname@example.com" required>
+                    </div>
+                </div>
+
+                <!-- Password Input -->
+                <div class="mb-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <label for="password" class="block text-gray-700 font-medium">Password</label>
+                        <a href="#" class="text-sm text-primary hover:underline">Forgot password?</a>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-lock text-gray-400"></i>
+                        </div>
+                        <input type="password" id="password" class="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="••••••••" required>
+                        <button type="button" id="toggle-password" class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                            <i class="fas fa-eye text-gray-400"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Remember Me Toggle -->
+                <div class="flex items-center mb-6">
+                    <input type="checkbox" id="remember-me" class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
+                    <label for="remember-me" class="ml-2 block text-sm text-gray-700">Remember me for 30 days</label>
+                </div>
+
+                <!-- Login Button -->
+                <button type="submit" class="w-full bg-primary text-white font-medium py-3 px-4 rounded-md hover-bg-primary-light transition-all mb-4">
+                    Log In
+                </button>
+
+                <!-- Divider -->
+                <div class="relative my-6">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-gray-300"></div>
+                    </div>
+                    <div class="relative flex justify-center text-sm">
+                        <span class="px-2 bg-white text-gray-500">Or continue with</span>
+                    </div>
+                </div>
+
+                <!-- Social Logins -->
+                <div class="grid grid-cols-2 gap-4 mb-6">
+                    <button type="button" class="flex justify-center items-center py-2 px-4 border border-gray-300 rounded-md hover:bg-gray-50 transition-all">
+                        <i class="fab fa-google text-red-500 mr-2"></i>
+                        <span>Google</span>
+                    </button>
+                    <button type="button" class="flex justify-center items-center py-2 px-4 border border-gray-300 rounded-md hover:bg-gray-50 transition-all">
+                        <i class="fab fa-apple text-gray-700 mr-2"></i>
+                        <span>Apple</span>
+                    </button>
+                </div>
+
+                <!-- Sign Up Link -->
+                <p class="text-center text-gray-600">
+                    Don't have an account? 
+                    <a href="#" class="text-primary font-medium hover:underline">Sign up</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white py-4 border-t">
+        <div class="container mx-auto px-4 text-center text-gray-500 text-sm">
+            <p>© 2025 HealAi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle password visibility
+            const togglePassword = document.getElementById('toggle-password');
+            const password = document.getElementById('password');
+
+            togglePassword.addEventListener('click', function() {
+                const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+                password.setAttribute('type', type);
+                
+                // Toggle eye icon
+                const icon = this.querySelector('i');
+                icon.classList.toggle('fa-eye');
+                icon.classList.toggle('fa-eye-slash');
+            });
+
+            // Form submission
+            const loginForm = document.getElementById('login-form');
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                
+                // Here you would typically send the credentials to your backend
+                console.log('Login attempt:', { email });
+                
+                // Simulate redirection to dashboard
+                alert('Login successful! Redirecting to dashboard...');
+                window.location.href = 'index.html'; // Redirect to homepage/dashboard
+            });
+        });
+    </script>
+</body>
+</html>
