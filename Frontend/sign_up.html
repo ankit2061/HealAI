@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - HealAi</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0e6e4f;
+            --primary-light: #218a6a;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e9f5f2;
+        }
+        .input-field {
+            @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent;
+        }
+        .btn-primary {
+            background-color: var(--primary);
+        }
+        .btn-primary:hover {
+            background-color: var(--primary-light);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="bg-green-800 shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="index.html" class="flex items-center">
+                    <i class="fas fa-heartbeat text-white text-2xl mr-2"></i>
+                    <span class="text-white font-bold text-xl">HealAi</span>
+                </a>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-white hover:text-gray-200">Home</a>
+                <a href="#" class="text-white hover:text-gray-200">About</a>
+                <a href="#" class="text-white hover:text-gray-200">Features</a>
+                <a href="#" class="text-white hover:text-gray-200">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Signup Container -->
+    <div class="flex items-center justify-center px-4 py-10">
+        <div class="bg-white rounded-lg shadow-xl p-6 w-full max-w-4xl">
+            <div class="text-center mb-6">
+                <div class="inline-flex items-center justify-center bg-green-700 rounded-full w-16 h-16 mb-4">
+                    <i class="fas fa-user-plus text-white text-2xl"></i>
+                </div>
+                <h1 class="text-2xl font-bold text-gray-800">Create your HealAi account</h1>
+                <p class="text-gray-600 mt-2">Complete all fields to set up your medical claims assistant</p>
+            </div>
+
+            <form id="signup-form" class="space-y-6">
+                <!-- Account Information Section -->
+                <div class="p-4 bg-gray-50 rounded-lg">
+                    <h2 class="text-lg font-semibold mb-4 text-gray-800 flex items-center">
+                        <i class="fas fa-user-circle mr-2 text-green-700"></i>Account Information
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="email" class="block text-gray-700 text-sm font-medium mb-1">Email Address*</label>
+                            <input type="email" id="email" class="input-field" placeholder="yourname@example.com" required>
+                        </div>
+                        <div>
+                            <label for="password" class="block text-gray-700 text-sm font-medium mb-1">Password*</label>
+                            <div class="relative">
+                                <input type="password" id="password" class="input-field pr-10" placeholder="••••••••••" required>
+                                <button type="button" class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                                    <i class="fas fa-eye text-gray-400"></i>
+                                </button>
+                            </div>
+                            <p class="mt-1 text-xs text-gray-500">8+ characters with uppercase, lowercase & numbers</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personal Information Section -->
+                <div class="p-4 bg-gray-50 rounded-lg">
+                    <h2 class="text-lg font-semibold mb-4 text-gray-800 flex items-center">
+                        <i class="fas fa-id-card mr-2 text-green-700"></i>Personal Information
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="first-name" class="block text-gray-700 text-sm font-medium mb-1">First Name*</label>
+                            <input type="text" id="first-name" class="input-field" required>
+                        </div>
+                        <div>
+                            <label for="last-name" class="block text-gray-700 text-sm font-medium mb-1">Last Name*</label>
+                            <input type="text" id="last-name" class="input-field" required>
+                        </div>
+                        <div>
+                            <label for="dob" class="block text-gray-700 text-sm font-medium mb-1">Date of Birth*</label>
+                            <input type="date" id="dob" class="input-field" required>
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-gray-700 text-sm font-medium mb-1">Phone Number*</label>
+                            <input type="tel" id="phone" class="input-field" placeholder="(123) 456-7890" required>
+                        </div>
+                        <div class="md:col-span-2">
+                            <label for="address" class="block text-gray-700 text-sm font-medium mb-1">Street Address*</label>
+                            <input type="text" id="address" class="input-field" required>
+                        </div>
+                        <div>
+                            <label for="city" class="block text-gray-700 text-sm font-medium mb-1">City*</label>
+                            <input type="text" id="city" class="input-field" required>
+                        </div>
+                        <div>
+                            <label for="state" class="block text-gray-700 text-sm font-medium mb-1">State*</label>
+                            <select id="state" class="input-field" required>
+                                <option value="" disabled selected>Select state</option>
+                                <option value="AL">Alabama</option>
+                                <option value="AK">Alaska</option>
+                                <option value="AZ">Arizona</option>
+                                <!-- Add other states as needed -->
+                            </select>
+                        </div>
+                        <div>
+                            <label for="zip" class="block text-gray-700 text-sm font-medium mb-1">ZIP Code*</label>
+                            <input type="text" id="zip" class="input-field" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Medical Information Section -->
+                <div class="p-4 bg-gray-50 rounded-lg">
+                    <h2 class="text-lg font-semibold mb-4 text-gray-800 flex items-center">
+                        <i class="fas fa-hospital-user mr-2 text-green-700"></i>Medical Information
+                    </h2>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-gray-700 text-sm font-medium mb-1">Do you have any pre-existing medical conditions?</label>
+                            <div class="flex space-x-4 mt-1">
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="preexisting" value="yes" class="text-green-600">
+                                    <span class="ml-2">Yes</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="preexisting" value="no" class="text-green-600" checked>
+                                    <span class="ml-2">No</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div id="conditions-container" class="hidden">
+                            <label for="conditions" class="block text-gray-700 text-sm font-medium mb-1">Please list your conditions</label>
+                            <textarea id="conditions" class="input-field h-20" placeholder="Type your conditions here..."></textarea>
+                        </div>
+                        <div>
+                            <label for="medications" class="block text-gray-700 text-sm font-medium mb-1">Current Medications (Optional)</label>
+                            <textarea id="medications" class="input-field h-20" placeholder="List any medications you are currently taking..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Insurance Information Section -->
+                <div class="p-4 bg-gray-50 rounded-lg">
+                    <h2 class="text-lg font-semibold mb-4 text-gray-800 flex items-center">
+                        <i class="fas fa-shield-alt mr-2 text-green-700"></i>Insurance Information
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="insurance-provider" class="block text-gray-700 text-sm font-medium mb-1">Insurance Provider*</label>
+                            <select id="insurance-provider" class="input-field" required>
+                                <option value="" disabled selected>Select provider</option>
+                                <option value="aetna">Aetna</option>
+                                <option value="bluecross">Blue Cross Blue Shield</option>
+                                <option value="cigna">Cigna</option>
+                                <option value="humana">Humana</option>
+                                <option value="kaiser">Kaiser Permanente</option>
+                                <option value="medicare">Medicare</option>
+                                <option value="uhc">UnitedHealthcare</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div id="other-provider-container" class="hidden">
+                            <label for="other-provider" class="block text-gray-700 text-sm font-medium mb-1">Provider Name*</label>
+                            <input type="text" id="other-provider" class="input-field">
+                        </div>
+                        <div>
+                            <label for="policy-number" class="block text-gray-700 text-sm font-medium mb-1">Policy/Member ID*</label>
+                            <input type="text" id="policy-number" class="input-field" required>
+                        </div>
+                        <div>
+                            <label for="group-number" class="block text-gray-700 text-sm font-medium mb-1">Group Number (if applicable)</label>
+                            <input type="text" id="group-number" class="input-field">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-gray-700 text-sm font-medium mb-1">Policyholder</label>
+                            <div class="flex space-x-4 mt-1">
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="policyholder" value="self" class="text-green-600" checked>
+                                    <span class="ml-2">Self</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="policyholder" value="other" class="text-green-600">
+                                    <span class="ml-2">Someone else</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Terms and Privacy -->
+                <div class="space-y-2">
+                    <label class="inline-flex items-center">
+                        <input type="checkbox" required class="text-green-600">
+                        <span class="ml-2 text-sm">I agree to the <a href="#" class="text-green-700 hover:underline">Terms and Conditions</a> and <a href="#" class="text-green-700 hover:underline">Privacy Policy</a></span>
+                    </label>
+                    <label class="inline-flex items-center">
+                        <input type="checkbox" class="text-green-600">
+                        <span class="ml-2 text-sm">I would like to receive updates about HealAi services and offers</span>
+                    </label>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="flex justify-center">
+                    <button type="submit" class="btn-primary text-white font-medium py-2 px-8 rounded-md transition-all w-full md:w-auto">
+                        Create Account
+                    </button>
+                </div>
+            </form>
+
+            <!-- Sign In Link -->
+            <div class="text-center mt-6">
+                <p class="text-gray-600">
+                    Already have an account? 
+                    <a href="login.html" class="text-green-700 font-medium hover:underline">Sign in</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white py-4 border-t mt-8">
+        <div class="container mx-auto px-4 text-center text-gray-500 text-sm">
+            <p>© 2025 HealAi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle password visibility
+            const togglePasswordBtn = document.querySelector('.fa-eye').parentElement;
+            togglePasswordBtn.addEventListener('click', function() {
+                const passwordInput = document.getElementById('password');
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                this.querySelector('i').classList.toggle('fa-eye');
+                this.querySelector('i').classList.toggle('fa-eye-slash');
+            });
+
+            // Show/hide preexisting conditions textarea
+            const preexistingRadios = document.querySelectorAll('input[name="preexisting"]');
+            const conditionsContainer = document.getElementById('conditions-container');
+            
+            preexistingRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    if (this.value === 'yes') {
+                        conditionsContainer.classList.remove('hidden');
+                    } else {
+                        conditionsContainer.classList.add('hidden');
+                    }
+                });
+            });
+
+            // Show/hide other insurance provider input
+            const insuranceProvider = document.getElementById('insurance-provider');
+            const otherProviderContainer = document.getElementById('other-provider-container');
+            
+            insuranceProvider.addEventListener('change', function() {
+                if (this.value === 'other') {
+                    otherProviderContainer.classList.remove('hidden');
+                } else {
+                    otherProviderContainer.classList.add('hidden');
+                }
+            });
+
+            // Form submission
+            const form = document.getElementById('signup-form');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Here you would typically handle form submission via AJAX
+                // For demonstration, we'll just show an alert
+                alert('Account created successfully! Redirecting to dashboard...');
+                window.location.href = 'index.html'; // Redirect to home page
+            });
+        });
+    </script>
+</body>
+</html>
