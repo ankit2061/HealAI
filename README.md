@@ -6,7 +6,7 @@
 
 > AI-powered platform to simplify and streamline the medical insurance claim process using OCR, NLP, and GenAI.
 
-![Heal AI Banner](https://your-image-link-here.com/banner.png) <!-- Optional: Add a project banner -->
+![Heal AI Banner](https://github.com/ankit2061/HealAI/blob/main/heal-ai_1744524741.png) <!-- Optional: Add a project banner -->
 
 ---
 
@@ -56,7 +56,7 @@ Filing insurance claims is often overwhelming due to:
 
 ### 1. Clone the Repo
 ```bash
-git clone https://github.com/your-username/heal-ai.git
+git clone git@github.com:ankit2061/HealAI.git
 cd heal-ai
 ```
 
