@@ -1,3 +1,9 @@
+Here’s your updated `README.md` with the necessary fixes and a few polish touches:
+
+- ✅ Fixed code blocks
+- ✅ Corrected GitHub clone URL (using HTTPS for general compatibility)
+- ✅ Replaced placeholders with your actual GitHub username (`ankit2061`)
+- ✅ Cleaned up some spacing and formatting
 
 ---
 
@@ -16,10 +22,10 @@
 
 ### 🔥 Why Heal AI?
 Filing insurance claims is often overwhelming due to:
-- Messy, unstructured medical documents
-- Confusing insurance jargon
-- Frequent errors and rejections
-- Lack of real-time help or feedback
+- Messy, unstructured medical documents  
+- Confusing insurance jargon  
+- Frequent errors and rejections  
+- Lack of real-time help or feedback  
 
 **Heal AI solves all of these.**
 
@@ -39,16 +45,16 @@ Filing insurance claims is often overwhelming due to:
 
 ## 🛠️ Tech Stack
 
-| Tech        | Purpose                          |
-|-------------|----------------------------------|
-| Python      | Backend and Document Processing  |
-| Tesseract   | OCR for scanned documents        |
-| pdfplumber  | Text extraction from PDFs        |
-| Regex       | Pattern-based data cleaning      |
-| MongoDB     | NoSQL database for storing claims|
-| Gemini API  | Chatbot, explanation, and summary|
-| Flask/FastAPI | API backend                    |
-| React.js (optional) | Frontend Interface       |
+| Tech         | Purpose                            |
+|--------------|------------------------------------|
+| Python       | Backend and Document Processing    |
+| Tesseract    | OCR for scanned documents          |
+| pdfplumber   | Text extraction from PDFs          |
+| Regex        | Pattern-based data cleaning        |
+| MongoDB      | NoSQL database for storing claims  |
+| Gemini API   | Chatbot, explanation, and summary  |
+| Flask/FastAPI| API backend                        |
+| React.js     | (Optional) Frontend Interface      |
 
 ---
 
@@ -56,8 +62,8 @@ Filing insurance claims is often overwhelming due to:
 
 ### 1. Clone the Repo
 ```bash
-git clone git@github.com:ankit2061/HealAI.git
-cd heal-ai
+git clone https://github.com/ankit2061/HealAI.git
+cd HealAI
 ```
 
 ### 2. Set Up Environment
@@ -87,7 +93,7 @@ python app.py  # or uvicorn main:app --reload for FastAPI
 ## 📂 Project Structure
 
 ```
-heal-ai/
+HealAI/
 ├── ocr/               # Tesseract + pdfplumber logic
 ├── ai/                # Gemini API calls for chatbot and explanation
 ├── db/                # MongoDB models and utils
@@ -110,28 +116,28 @@ heal-ai/
 
 We welcome contributions! To get started:
 
-1. Fork the repo
-2. Create a new branch (`git checkout -b feature-name`)
-3. Commit your changes (`git commit -m 'Added feature'`)
-4. Push to the branch (`git push origin feature-name`)
-5. Open a Pull Request 🎉
+1. Fork the repo  
+2. Create a new branch (`git checkout -b feature-name`)  
+3. Commit your changes (`git commit -m 'Added feature'`)  
+4. Push to the branch (`git push origin feature-name`)  
+5. Open a Pull Request 🎉  
 
 ---
 
 ## 📄 License
 
-MIT License © [Your Name](https://github.com/your-username)
+MIT License © [Ankit](https://github.com/ankit2061)
 
 ---
 
 ## 🙌 Acknowledgements
 
-- [Google Tesseract OCR](https://github.com/tesseract-ocr/tesseract)
-- [pdfplumber](https://github.com/jsvine/pdfplumber)
-- [Gemini API by Google](https://ai.google.dev/)
-- [MongoDB](https://www.mongodb.com/)
+- [Google Tesseract OCR](https://github.com/tesseract-ocr/tesseract)  
+- [pdfplumber](https://github.com/jsvine/pdfplumber)  
+- [Gemini API by Google](https://ai.google.dev/)  
+- [MongoDB](https://www.mongodb.com/)  
 ```
 
 ---
 
-### Want it customized with your actual links, username, or demo GIFs? Just send them and I’ll plug them in. Or I can help you deploy the project first and then update the README accordingly!
+Let me know once you deploy your backend or have the chatbot working on Replit — I’ll help you plug the live demo link and update the screenshots section too!
