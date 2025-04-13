@@ -7,3 +7,5 @@ Ai.ipynb
 .DS_Store
 
 main.py
+
+__pycache__
