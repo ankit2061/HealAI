@@ -1,9 +1,3 @@
-Here’s your updated `README.md` with the necessary fixes and a few polish touches:
-
-- ✅ Fixed code blocks
-- ✅ Corrected GitHub clone URL (using HTTPS for general compatibility)
-- ✅ Replaced placeholders with your actual GitHub username (`ankit2061`)
-- ✅ Cleaned up some spacing and formatting
 
 ---
 
@@ -140,4 +134,3 @@ MIT License © [Ankit](https://github.com/ankit2061)
 
 ---
 
-Let me know once you deploy your backend or have the chatbot working on Replit — I’ll help you plug the live demo link and update the screenshots section too!
